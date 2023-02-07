@@ -1,0 +1,29 @@
+<h1>Create Question</h1>
+{{#if errors.length}}
+<p>Couldn't create the question:</p>
+<ul>
+	{{#each errors}}
+	<li>{{this}}</li>
+	{{/each}}
+</ul>
+{{/if}}
+
+<form class="row g-3" method="post" action="/questions/create">
+	<div classs="container">
+		<div class="col-4">
+			<label for="exampleInputEmail1" class="form-label">Question</label><br>
+			<textarea name="ques">{{ques}}</textarea>
+		</div>
+	</div>
+	<div classs="container">
+		<div class="col-4">
+			<label for="exampleInputEmail1" class="form-label">Answer</label><br>
+			<textarea name="ans">{{ans}}</textarea>
+		</div>
+	</div>
+	<div class="card-body">
+		<button class="btn btn-secondary" type="submit" value="Update">Create</button>
+	</div>
+
+	</div>
+</form>

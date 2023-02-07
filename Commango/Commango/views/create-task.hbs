@@ -1,0 +1,66 @@
+<h1>Create Task</h1>
+{{#if errors.length}}
+  <p>Couldn't create the task:</p>
+  <ul>
+    {{#each errors}}
+      <li>{{this}}</li>
+    {{/each}}
+  </ul>
+{{/if}}
+<form class="row g-3" method="post">
+  <div classs="container">
+    <div class="col-4">
+      <label class="form-label">Taskname</label><br />
+      <input
+        type="text"
+        class="form-control"
+        name="taskname"
+        value="{{taskname}}"
+      />
+    </div>
+  </div>
+  <div classs="container">
+    <div class="col-4">
+      <label class="form-label">Select task stats</label><br />
+      <select
+        class="form-select"
+        aria-label="Default select example"
+        name="status"
+        value="{{status}}"
+      >
+        <option started>Started</option>
+        <option value="Assigned">Assigned</option>
+        <option value="Finished">Finished</option>
+      </select>
+    </div>
+  </div>
+  <div classs="container">
+    <div class="col-4">
+      <label class="form-label">Assigned-User</label><br />
+      <input
+        type="text"
+        class="form-control"
+        name="assigneduser"
+        value="{{assigneduser}}"
+      />
+    </div>
+  </div>
+  <div classs="container">
+    <div class="col-4">
+      <button
+        class="btn btn-secondary"
+        type="submit"
+        value="Create Task"
+      >Create</button>
+      <a class="btn btn-secondary" href="\tasks" role="button">Tasks page</a>
+    </div>
+  </div>
+</form>
+{{#if errorMessages.length}}
+  <p>Couldn't create the task:</p>
+  <ul>
+    {{#each errorMessages}}
+      <li>{{this}}</li>
+    {{/each}}
+  </ul>
+{{/if}}

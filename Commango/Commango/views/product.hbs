@@ -1,0 +1,46 @@
+{{#if session.isLoggedIn}}
+  <br />
+
+  {{#if errors.length}}
+    <p>Couldn't fetch product because</p>
+    <ul>
+      {{#each errors}}
+        <li>{{this}}</li>
+      {{/each}}
+    </ul>
+  {{/if}}
+
+  <div class="card" style="width: 18rem;">
+    {{#if product}}
+      <!-- TODO: These aren't paragraphs! -->
+      <div class="card-body">
+        <h5 class="card-title">{{product.name}} </h5>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{product.description}}</li>
+      </ul>
+      <br />
+      <div classs="container">
+        <a
+          class="btn btn-secondary"
+          href="/products/{{product.id}}/update"
+          role="button"
+        >Update product</a>
+        <a
+          class="btn btn-secondary"
+          href="/products/{{product.id}}/delete"
+          role="button"
+        >Delete product</a>
+      </div>
+      <br />
+    {{else}}
+      <h1>Not found</h1>
+      <p>The product doesn't exist.</p>
+    {{/if}}
+  </div>
+{{else}}
+  <br /><br />
+  <div class="alert alert-dark" role="alert">
+    <h5>Please Login!</h5>
+  </div>
+{{/if}}

@@ -1,0 +1,37 @@
+{{#if session.isLoggedIn}}
+  <h1>People</h1>
+  {{#if dbErrorOccurred}}
+    <p>Can't display the page now, try again later.</p>
+  {{else}}
+    {{#if humans.length}}
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">firstname</th>
+            <th scope="col">lastname</th>
+            <th scope="col">email</th>
+            <th scope="col">City</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each humans}}
+            <tr onclick="window.location='/humans/{{id}}';">
+              <td>{{firstname}}</td>
+              <td>{{lastname}}</td>
+              <td>{{email}}</td>
+              <td>{{city}}</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    {{else}}
+      <p>There are no persons to show.</p>
+    {{/if}}
+  {{/if}}
+  <a class="btn btn-secondary" href="/humans/create" role="button">Add people</a>
+{{else}}
+  <br /><br />
+  <div class="alert alert-dark" role="alert">
+    <h5>Please Login to show people!</h5>
+  </div>
+{{/if}}

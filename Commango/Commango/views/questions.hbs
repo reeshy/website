@@ -1,0 +1,34 @@
+<link rel="stylesheet" href="/css/layout.css" />
+
+<h1>Frequently Asked Questions!</h1>
+{{#if session.isLoggedIn}}
+  {{#if hasDatabaseError}}
+    <p>Couldn't fetch the questions at the moment, try again later.</p>
+  {{else}}
+    {{#if questions.length}}
+      <div class="faq-content">
+        {{#each questions}}
+          <div class="faq-question">
+            <input id="q{{id}}" type="checkbox" class="panel" />
+            <div class="plus"><a href="/questions/{{id}}">+</a> </div>
+            <label for="q{{id}}" class="panel-title">{{ques}}</label>
+            <div class="panel-content">{{ans}}</div>
+          </div>
+        {{/each}}
+      </div>
+      <br />
+    {{else}}
+      <p>There is no questions!</p>
+    {{/if}}
+  {{/if}}
+  <a href="\questions\create"><button
+      type="button"
+      class="btn btn-secondary"
+    >Create question</button>
+  </a>
+{{else}}
+  <br /><br />
+  <div class="alert alert-dark" role="alert">
+    <h5>Please Login to show questions!</h5>
+  </div>
+{{/if}}

@@ -1,0 +1,63 @@
+<h1>Create Person</h1>
+{{#if errors.length}}
+  <p>Couldn't create the person:</p>
+  <ul>
+    {{#each errors}}
+      <li>{{this}}</li>
+    {{/each}}
+  </ul>
+{{/if}}
+<form class="row g-3" method="post">
+  <div classs="container">
+    <div class="col-4">
+      <label class="form-label">Firstname</label><br />
+      <input
+        type="text"
+        class="form-control"
+        name="firstname"
+        value="{{firstname}}"
+      />
+    </div>
+  </div>
+  <div classs="container">
+    <div class="col-4">
+      <label class="form-label">Lastname</label><br />
+      <input
+        type="text"
+        class="form-control"
+        name="lastname"
+        value="{{lastname}}"
+      />
+    </div>
+  </div>
+  <div classs="container">
+    <div class="col-4">
+      <label class="form-label">E-mail</label><br />
+      <input type="email" class="form-control" name="email" value="{{email}}" />
+    </div>
+  </div>
+  <div classs="container">
+    <div class="col-4">
+      <label class="form-label">City</label><br />
+      <input type="text" class="form-control" name="city" value="{{city}}" />
+    </div>
+  </div>
+  <div classs="container">
+    <div class="col-4">
+      <button
+        class="btn btn-secondary"
+        type="submit"
+        value="Create Human"
+      >Create</button>
+      <a class="btn btn-secondary" href="\humans" role="button">Peoples page</a>
+    </div>
+  </div>
+</form>
+{{#if errorMessages.length}}
+  <p>Couldn't create the user:</p>
+  <ul>
+    {{#each errorMessages}}
+      <li>{{this}}</li>
+    {{/each}}
+  </ul>
+{{/if}}

@@ -1,0 +1,37 @@
+<br>
+<h1>People</h1>
+{{#if session.isLoggedIn}}
+{{#if errors.length}}
+<p>Couldn't fetch the person because:</p>
+<ul>
+  {{#each errors}}
+  <li>{{this}}</li>
+  {{/each}}
+</ul>
+{{/if}}
+
+<div class="card" style="width: 30rem;">
+
+  {{#if human}}
+  <div class="card-body">
+    <h5 class="card-title">{{human.firstname}} {{human.lastname}} </h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">{{human.email}}</li>
+    <li class="list-group-item">{{human.city}}</li>
+  </ul>
+  <br>
+  <div classs="container">
+    <a class="btn btn-secondary" href="/humans/update/{{human.id}}" role="button">Update person</a>
+    <a class="btn btn-secondary" href="/humans/{{human.id}}/delete" role="button">Delete person</a>
+  </div>
+  {{else}}
+  <p>No person with that ID exists.</p>
+  {{/if}}
+  {{else}}
+  <br><br>
+  <div class="alert alert-dark" role="alert">
+    <h5>Please Login!</h5>
+  </div>
+</div>
+{{/if}}

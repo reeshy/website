@@ -1,0 +1,36 @@
+{{#if session.isLoggedIn}}
+  <div class="card" style="width: 18rem;">
+    {{#if question}}
+      <!-- TODO: These aren't paragraphs! -->
+      <div class="card-body">
+        <h5 class="card-title">Frequently Asked Questions</h5>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{question.ques}}</li>
+        <li class="list-group-item">{{question.ans}}</li>
+      </ul>
+      <br />
+      <div classs="container">
+        <a
+          class="btn btn-secondary"
+          href="/questions/{{question.id}}/update"
+          role="button"
+        >Update question</a>
+        <a
+          class="btn btn-secondary"
+          href="/questions/{{question.id}}/delete"
+          role="button"
+        >Delete question</a>
+      </div>
+      <br />
+    {{else}}
+      <h1>Question not found</h1>
+      <p>The question doesn't seem to exist.</p>
+    {{/if}}
+  </div>
+{{else}}
+  <br /><br />
+  <div class="alert alert-dark" role="alert">
+    <h5>Please Login!</h5>
+  </div>
+{{/if}}

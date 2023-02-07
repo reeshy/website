@@ -1,0 +1,35 @@
+{{#if session.isLoggedIn}}
+  <h1>Tasks</h1>
+  {{#if dbErrorOccurred}}
+    <p>Can't display the page, please try again later.</p>
+  {{else}}
+    {{#if tasks.length}}
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">taskname</th>
+            <th scope="col">status</th>
+            <th scope="col">assigneduser</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each tasks}}
+            <tr onclick="window.location='/tasks/{{id}}';">
+              <td>{{taskname}}</td>
+              <td>{{status}}</td>
+              <td>{{assigneduser}}</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    {{else}}
+      <p>There are no task to show.</p>
+    {{/if}}
+  {{/if}}
+  <a class="btn btn-secondary" href="/tasks/create" role="button">Create tasks</a>
+{{else}}
+  <br /><br />
+  <div class="alert alert-dark" role="alert">
+    <h5>Please Login to show tasks!</h5>
+  </div>
+{{/if}}

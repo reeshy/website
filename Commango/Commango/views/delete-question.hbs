@@ -1,0 +1,5 @@
+<h1>Delete question</h1>
+<p>Do you really want to delete {{question.name}}?</p>
+<form action="/questions/{{question.id}}/delete" method="post">
+  <input type="submit" value="Delete it!" />
+</form>

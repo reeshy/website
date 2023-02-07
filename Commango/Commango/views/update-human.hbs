@@ -1,0 +1,65 @@
+<h1>Update People</h1>
+{{#if errors.length}}
+  <p>Couldn't create the person because:</p>
+  <ul>
+    {{#each errors}}
+      <li>{{this}}</li>
+    {{/each}}
+  </ul>
+{{/if}}
+<form class="row g-3" method="post">
+  <div classs="container">
+    <div class="col-4">
+      <label class="form-label">Firstname</label><br />
+      <input
+        type="text"
+        class="form-control"
+        name="firstname"
+        value="{{human.firstname}}"
+      />
+    </div>
+  </div>
+  <div classs="container">
+    <div class="col-4">
+      <label class="form-label">Lastname</label><br />
+      <input
+        type="text"
+        class="form-control"
+        name="lastname"
+        value="{{human.lastname}}"
+      />
+    </div>
+  </div>
+  <div classs="container">
+    <div class="col-4">
+      <label class="form-label">E-mail</label><br />
+      <input
+        type="email"
+        class="form-control"
+        name="email"
+        value="{{human.email}}"
+      />
+    </div>
+  </div>
+  <div classs="container">
+    <div class="col-4">
+      <label class="form-label">City</label><br />
+      <input
+        type="text"
+        class="form-control"
+        name="city"
+        value="{{human.city}}"
+      />
+    </div>
+  </div>
+  <div classs="container">
+    <div class="col-4">
+      <button
+        class="btn btn-secondary"
+        type="submit"
+        value="Update"
+      >Update</button>
+      <a class="btn btn-secondary" href="\humans" role="button">Peoples page</a>
+    </div>
+  </div>
+</form>

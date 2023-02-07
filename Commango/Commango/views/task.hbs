@@ -1,0 +1,28 @@
+<br>
+<h1>Task</h1>
+{{#if session.isLoggedIn}}
+<div class="card" style="width: 18rem;">
+  {{#if task}}
+  <!-- TODO: These aren't paragraphs! -->
+  <div class="card-body">
+    <h5 class="card-title">{{task.taskname}} </h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">{{task.status}}</li>
+    <li class="list-group-item">{{task.assigneduser}}</li>
+  </ul>
+  <br>
+  <div classs="container">
+    <a class="btn btn-secondary" href="/tasks/update/{{task.id}}" role="button">Update task</a>
+    <a class="btn btn-secondary" href="/tasks/{{task.id}}/delete" role="button">Delete task</a </div>
+    <br>
+    {{else}}
+    <p>No task with that ID exists.</p>
+    {{/if}}
+    {{else}}
+    <br><br>
+    <div class="alert alert-dark" role="alert">
+      <h5>Please Login!</h5>
+    </div>
+  </div>
+  {{/if}}

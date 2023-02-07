@@ -1,0 +1,33 @@
+<h1>Products!</h1>
+{{#if session.isLoggedIn}}
+{{#if hasDatabaseError}}
+<p>Couldn't fetch the products at the moment, try again later.</p>
+{{else}}
+{{#if products.length}}
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">name</th>
+      <th scope="col">description</th>
+    </tr>
+  </thead>
+  {{#each products}}
+  <tr onclick="window.location='/products/{{id}}';">
+    <td>{{name}}</td>
+    <td>{{description}}</td>
+    {{/each}}
+    </tbody>
+</table>
+</a>
+{{else}}
+<p>All products are sold!</p>
+{{/if}}
+{{/if}}
+<a href="\products\create"><button type="button" class="btn btn-secondary">Create product</button>
+</a>
+{{else}}
+<br><br>
+ <div class="alert alert-dark" role="alert">
+  <h5>Please Login to show products!</h5>
+</div>
+{{/if}}

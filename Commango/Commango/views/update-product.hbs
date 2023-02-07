@@ -1,0 +1,32 @@
+<h1>Update Product</h1>
+{{#if errors.length}}
+<p>Couldn't update the product because:</p>
+<ul>
+	{{#each errors}}
+	<li>{{this}}</li>
+	{{/each}}
+</ul>
+{{/if}}
+<form class="row g-3" method="post">
+	<div classs="container">
+		<div class="col-4">
+			<label for="exampleInputEmail1" class="form-label">Name</label><br>
+			<input type="text" name="name" value="{{product.name}}">
+		</div>
+	</div>
+	<div classs="container">
+		<div class="col-4">
+			<label for="exampleInputEmail1" class="form-label">Description</label><br>
+			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+				name="description">{{product.description}}</textarea>
+		</div>
+	</div>
+	</div>
+	<br>
+	<div classs="container">
+		<button class="btn btn-secondary" type="submit" value="Update">Update</button>
+		<a class="btn btn-secondary" href="\products" role="button">Products page</a>
+	</div>
+	<br>
+	</div>
+</form>

@@ -1,0 +1,30 @@
+<h1>Create Product</h1>
+{{#if errors.length}}
+<p>Couldn't create the product:</p>
+<ul>
+	{{#each errors}}
+	<li>{{this}}</li>
+	{{/each}}
+</ul>
+{{/if}}
+<form class="row g-3" method="post" action="/products/create">
+	<div classs="container">
+		<div class="col-4">
+			<label for="exampleInputEmail1" class="form-label">Name</label><br>
+			<input type="text" name="name" value="{{name}}">
+		</div>
+	</div>
+	<div classs="container">
+		<div class="col-4">
+			<label for="exampleInputEmail1" class="form-label">Description</label><br>
+			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+				name="description">{{description}}</textarea>
+		</div>
+	</div>
+	<br>
+	<div classs="container">
+		<input type="submit" class="btn btn-secondary" value="Create">
+	</div>
+	<br>
+	</div>
+</form>
